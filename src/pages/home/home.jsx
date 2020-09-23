@@ -18,7 +18,7 @@ class home extends Component {
         <Icon key="1" type="ellipsis" />,
       ]}
     >NavBar</NavBar>
-     <Button loading>loading button</Button>
+     <Button loading>点击按钮</Button>
       </div>
     )
   }
