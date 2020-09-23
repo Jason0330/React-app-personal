@@ -10,7 +10,7 @@ react4 + react-redux + react-router + es6 + axios + sass + webpack
 # 项目运行
 `node >= 6.0`
 ```
-
+  git clone https://github.com/Jason0330/React-app-personal.git
   npm install 
   npm run start
 ```

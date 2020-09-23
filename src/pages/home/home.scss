@@ -1,3 +1,23 @@
 .home{
-    background-color: brown;
+    background-color:transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+    .lB{
+        background-color: transparent;
+        outline: none;
+        border: 0;
+    }
+    .rB{
+        background-color: transparent;
+        outline: none;
+        border: 0;
+
+    }
+    .searchBar{
+        width: 240px;
+    }
 }
