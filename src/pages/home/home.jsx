@@ -1,34 +1,102 @@
 import React, { Component } from 'react'
-import { SearchBar, Button, } from 'antd-mobile';
+import { SearchBar, Button, Carousel } from 'antd-mobile';
 import './home.scss';
-import http from '../../utils/serve'
+import axios from 'axios';
+
 class home extends Component {
-
-  state = {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      bandata: [],
+      toListData:[],
+      scrolls:false
+    }
   }
+
 
   componentDidMount() {
     this.init()
+    window.addEventListener('scroll', this.bindHandleScroll)
+  }
+       //在componentWillUnmount，进行scroll事件的注销
+   componentWillUnmount() {
+       window.removeEventListener('scroll', this.bindHandleScroll);
+   }
+
+   bindHandleScroll=(event)=>{
+    //滚动条高度
+    let ctx=this;
+    // let clientHeight = document.documentElement.clientHeight; //可视区域高度
+    let scrollTop  = document.documentElement.scrollTop;  //滚动条滚动高度
+    // let scrollHeight =document.documentElement.scrollHeight; //滚动内容高度
+    if(scrollTop>1){
+        ctx.setState({ scrolls:true})
+    }else
+    {
+        ctx.setState({ scrolls:false })
+    }
   }
 
-  init=()=>{
-    http.get('http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000008&platform_code=PLATEFORM_H5').then((response) => {
-      console.log(response)
-      if (response.data === "SUCCESS") {
 
-      } else {
-
-      }
-    })
+  init = () => {
+    axios.all([
+      　　　　axios.get("http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000008&platform_code=PLATEFORM_H5").then(res => res.data),
+      　　　　axios.get("http://www.mei.com/appapi/home/eventForH5?params=%7B%7D&timestamp=1600912026070&summary=cd3cb6b1069528603bca6e869011ed1e&platform_code=H5").then(res => res.data)
+      　　]).then(
+      　　　　axios.spread((res1,res2) => {
+            let banData = res1.banners;
+            let toListData = res2.lists[0].events
+            this.setState({ bandata: banData,toListData:toListData})
+      　　})
+      ).catch(err => {
+      　　console.log(err) ;
+      })
   }
+
 
   render() {
     return (
       <div className="home">
-        <Button size="small" className="lB">登录</Button>
-        <SearchBar placeholder="搜索商品" maxLength={8} className="searchBar" />
-        <Button size="small" className="rB">商场</Button>
+        <div className={this.state.scrolls ? 'scrolledBox' : 'headBox'}>
+          <Button size="small" className={this.state.scrolls ? 'scrollbtn' : 'lB'}>登录</Button>
+          <SearchBar placeholder="搜索商品" maxLength={8} className="searchBar" />
+          <Button size="small" className={this.state.scrolls ? 'scrollbtn' : 'rB'}>商场</Button>
+        </div>
+        <Carousel
+          autoplay={false}
+          infinite
+        >
+          {this.state.bandata.map(val => (
+            <a
+              key={val}
+              href="http://www.baidu.com"
+              style={{ display: 'inline-block', width: '100%' }}
+            >
+              <img
+                src={val.main_image}
+                alt=""
+                style={{ width: '100%', verticalAlign: 'top' }}
+                onLoad={() => {
+                  // fire window resize event to change height
+                  window.dispatchEvent(new Event('resize'));
+                  this.setState({ imgHeight: 'auto' });
+                }}
+              />
+            </a>
+          ))}
+        </Carousel>
+        <div className="todayList">
+            <img src={require('../../assets/img/today.png')} className="toimg" alt=""/>
+                {
+                  this.state.toListData.map(item => (
+                      <div className="toBox" key={item.eventId} style={{ background: `url('${item.imageUrl}') center center /cover` }}>
+                        <p style={{fontSize:16,color:'#fff',marginLeft:20}}>{item.englishName}</p>
+                        <p style={{fontSize:14,color:'#fff',marginLeft:20}}>{item.chineseName}</p>
+                        <p style={{fontSize:12,color:'#fff',marginLeft:20}}>{item.discountText}</p>
+                      </div>
+                  ))
+                }
+        </div>
       </div>
     )
   }

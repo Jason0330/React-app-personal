@@ -1,23 +1,80 @@
+* { touch-action: pan-y; } 
 .home{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    // align-items: center;
+    .headBox{
     background-color:transparent;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    .searchBar{
+        padding: 0;
+        background-color: transparent;
+    }
+    }
+    .scrolledBox{
+        background-color:#efeff4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    }
     
     .lB{
         background-color: transparent;
         outline: none;
         border: 0;
+        color: #ffffff;
+        font-size: 14px;
+
+    }
+    .scrollbtn{
+        background-color: transparent;
+        color: #000;
+        font-weight: bold;
+        font-size: 14px;
     }
     .rB{
         background-color: transparent;
         outline: none;
         border: 0;
+        color: #ffffff;
+        font-size: 14px;
 
     }
     .searchBar{
         width: 240px;
+    }
+    .banner{
+        width: 200px;
+        height: 200px;
+    }
+    .todayList{
+        padding:15px;
+        flex-direction: column;
+        .toimg{
+            width: 180px;
+        }
+        .toBox{
+            width:100%;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            margin-top: 15px;
+            
+        }
     }
 }
