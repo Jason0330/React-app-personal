@@ -11,7 +11,7 @@ class goods extends Component {
     id:''
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     let id = this.props.match.params.e
     this.setState({id:id})
   }

@@ -12,7 +12,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-lazyload": "^3.0.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-transition-group": "^2.3.0",
+    "save-dev": "0.0.1-security"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -18,6 +18,7 @@ class home extends Component {
        //在componentWillUnmount，进行scroll事件的注销
    componentWillUnmount() {
        window.removeEventListener('scroll', this.bindHandleScroll);
+       axios.Cancel()
    }
 
    bindHandleScroll=(event)=>{
@@ -52,12 +53,16 @@ class home extends Component {
     this.props.history.push(`/goods/${e}`)
   }
 
+  toLogin=()=>{
+    this.props.history.push('/login')
+  }
+
 
   render() {
     return (
       <div className="home">
         <div className={this.state.scrolls ? 'scrolledBox' : 'headBox'}>
-          <Button size="small" className={this.state.scrolls ? 'scrollbtn' : 'lB'}>登录</Button>
+          <Button size="small" onClick={this.toLogin} className={this.state.scrolls ? 'scrollbtn' : 'lB'}>登录</Button>
           <SearchBar placeholder="搜索商品" maxLength={8} className="searchBar" />
           <Button size="small" className={this.state.scrolls ? 'scrollbtn' : 'rB'}>商场</Button>
         </div>
