@@ -4,15 +4,12 @@ import './home.scss';
 import axios from 'axios';
 
 class home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+ 
+    state = {
       bandata: [],
       toListData:[],
       scrolls:false
     }
-  }
-
 
   componentDidMount() {
     this.init()
@@ -26,9 +23,7 @@ class home extends Component {
    bindHandleScroll=(event)=>{
     //滚动条高度
     let ctx=this;
-    // let clientHeight = document.documentElement.clientHeight; //可视区域高度
     let scrollTop  = document.documentElement.scrollTop;  //滚动条滚动高度
-    // let scrollHeight =document.documentElement.scrollHeight; //滚动内容高度
     if(scrollTop>1){
         ctx.setState({ scrolls:true})
     }else
@@ -53,6 +48,10 @@ class home extends Component {
       })
   }
 
+  todetail=(e)=>{
+    this.props.history.push(`/goods/${e}`)
+  }
+
 
   render() {
     return (
@@ -62,6 +61,7 @@ class home extends Component {
           <SearchBar placeholder="搜索商品" maxLength={8} className="searchBar" />
           <Button size="small" className={this.state.scrolls ? 'scrollbtn' : 'rB'}>商场</Button>
         </div>
+        {/* <NavBar/> */}
         <Carousel
           autoplay={false}
           infinite
@@ -85,15 +85,17 @@ class home extends Component {
             </a>
           ))}
         </Carousel>
-        <div className="todayList">
-            <img src={require('../../assets/img/today.png')} className="toimg" alt=""/>
+        <div className="todayList"> 
+        {this.state.bandata.length === 0 ?null:
+            <img src={require('../../assets/img/today.png')} className="toimg" alt=""/>}                 
                 {
                   this.state.toListData.map(item => (
-                      <div className="toBox" key={item.eventId} style={{ background: `url('${item.imageUrl}') center center /cover` }}>
+                      // eslint-disable-next-line jsx-a11y/anchor-is-valid
+                      <a onClick={()=>this.todetail(item.categoryId)} className="toBox" key={item.eventId} style={{ background: `url('${item.imageUrl}') center center /cover` }}>
                         <p style={{fontSize:16,color:'#fff',marginLeft:20}}>{item.englishName}</p>
                         <p style={{fontSize:14,color:'#fff',marginLeft:20}}>{item.chineseName}</p>
                         <p style={{fontSize:12,color:'#fff',marginLeft:20}}>{item.discountText}</p>
-                      </div>
+                      </a>
                   ))
                 }
         </div>

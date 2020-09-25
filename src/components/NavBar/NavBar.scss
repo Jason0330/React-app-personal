@@ -1,0 +1,55 @@
+.headerBar{
+        height: 30px;
+        font-size: .373333rem;
+        width: 10.666667rem;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        white-space: nowrap;
+        position: fixed;
+        top: 60px;
+        z-index: 5;
+        background-color: transparent;
+        .menudh{
+    text-align: center;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    position: relative;
+    box-sizing: border-box;
+    width: 1.066667rem;
+    float: left;
+    color: black;
+    text-decoration: none;
+  
+    }
+    .menudh::after{
+      transition: all .5s ease 0s;
+      transform: scale(0);
+      content: "";
+      position: absolute;
+      width: .373333rem;
+      height: .053333rem;
+      bottom: .226667rem;
+      left: 50%;
+      margin-left: -.186667rem;
+      background: #fff;
+      opacity: 1;
+      }
+    .myactive::after{
+      opacity: 1;
+      transform: scale(1);
+    }
+}
+.headerBar1{
+    height: 30px;
+    font-size: .373333rem;
+    width: 10.666667rem;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    white-space: nowrap;
+    position: fixed;
+    top: 60px;
+    z-index: 5;
+    background-color: #efeff4;
+}

@@ -1,0 +1,41 @@
+.outside{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #fff;
+   .goodsbox{
+    width: 46%;
+    overflow: hidden;
+    padding-left: 10px;
+    .price{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 10px;
+        .pricename{
+            color: red;
+            font-weight: bold;
+        }
+    }
+    .new{
+        width:60px;
+        border: 1px solid red;
+        background-color: red;
+        color: #fff;
+    }
+    .goodsname{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .overtext{
+        overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+    }
+  .goodimg{
+    width: 100%;
+}  
+} 
+}

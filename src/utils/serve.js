@@ -1,60 +1,74 @@
-import axios from 'axios'
-import qs from 'qs'
+import axios from 'axios';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { message, Spin } from 'antd';
 
-axios.defaults.timeout = 50000;
-axios.defaults.baseURL = 'http://localhost:3000';
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
-axios.defaults.withCredentials = true;
+const Axios = axios.create({
+    // baseURL: process.env.BASE_URL, // 设置请求的base url
+    timeout: 20000, // 设置超时时长
+})
 
-let http = {
-    post: "",
-    get: ""
-};
+// 设置post请求头
+Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 
-http.post = function (api, data) {
-    let params = qs.stringify(data);
-    return new Promise((resolve, reject) => {
-        axios.post(api, params).then((res) => {
-            resolve(res)
-        }).catch(err => {
-            reject(err)
-        })
-    })
-};
+// 当前正在请求的数量
+let requestCount = 0
 
-http.get = function (api, data) {
-    let params = qs.stringify(data);
-    return new Promise((resolve, reject) => {
-        axios.get(api, params).then((res) => {
-            resolve(res);
-        }).catch(err => {
-            reject(err)
-        })
-    })
-};
+// 显示loading
+function showLoading () {
+    if (requestCount === 0) {
+        var dom = document.createElement('div')
+        dom.setAttribute('id', 'loading')
+        document.body.appendChild(dom)
+        ReactDOM.render(<Spin tip="加载中..." size="large"/>, dom)
+    }
+    requestCount++
+}
 
-export default http
+// 隐藏loading
+function hideLoading () {
+    requestCount--
+    if (requestCount === 0) {
+        document.body.removeChild(document.getElementById('loading'))
+    }
+}
 
-//使用
-// import http from '../../server'
+// 请求前拦截
+Axios.interceptors.request.use(config => {
+   // requestCount为0，才创建loading, 避免重复创建
+    if (config.headers.isLoading !== false) {
+        showLoading()
+    }
+    return config
+}, err => {
+    // 判断当前请求是否设置了不显示Loading
+    if (err.config.headers.isLoading !== false) {
+        hideLoading()
+    }
+    return Promise.reject(err)
+})
 
-// //get
-// http.get('/sys/logout').then((response) => {
-//     if (response.data === "SUCCESS") {
-//         ...
-//     } else {
-//         ...
-//     }
-// })
+// 返回后拦截
+Axios.interceptors.response.use(res => {
+    // 判断当前请求是否设置了不显示Loading
+    if (res.config.headers.isLoading !== false) {
+        hideLoading()
+    }
+    return res
+}, err => {
+    if (err.config.headers.isLoading !== false) {
+        hideLoading()
+    }
+    if (err.message === 'Network Error') {
+        message.warning('网络连接异常！')
+    }
+    if (err.code === 'ECONNABORTED') {
+        message.warning('请求超时，请重试')
+    }
+    return Promise.reject(err)
+})
 
-// //post
-// http.post('/sys/login', {
-//     loginInfo: loginInfo,
-//     password: password
-// }).then((response) => {
-//     if (response.data === 'SUCCESS') {
-//         ...
-//     } else {
-//         ...          
-//     }
-// });
+// 把组件引入，并定义成原型属性方便使用
+Component.prototype.$axios = Axios
+
+export default Axios

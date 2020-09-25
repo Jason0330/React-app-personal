@@ -1,17 +1,45 @@
-import React, {Component} from 'react'
+
+import React, { Component } from 'react'
+import Header from '../../components/Header/Header'
+import './goods.scss'
 
 class goods extends Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            
-        }
-      }
-   
-  render () {
+
+  state = {
+    data: [],
+    outdata: {},
+    id:''
+  }
+
+  componentWillMount() {
+    let id = this.props.match.params.e
+    this.setState({id:id})
+  }
+
+  transData=(val)=>{
+    this.setState({data:val.prodatas,outdata:val.outdata})
+  }
+
+  render() {
     return (
       <div>
-          <p>这里是商品</p>
+        <Header title={this.state.outdata.eventName} id={this.state.id} moveDate={this.transData}/>
+        <div className="outside">
+          {
+          this.state.data.map(item => (
+            <div key={item.productId} className="goodsbox">
+              <img src={item.imageUrl} alt="" className="goodimg" />
+              <p className="new">当季新品</p>
+              <p className="goodsname">{item.brandName}</p>
+              <p className="overtext">{item.productName}</p>
+              <div className="price">
+                <p className="pricename">¥{item.price}</p>
+              <p>{item.discount}折</p>
+              </div>
+            </div>
+          ))
+        }
+        </div> 
       </div>
     )
   }
