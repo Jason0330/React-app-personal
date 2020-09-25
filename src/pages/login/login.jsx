@@ -2,6 +2,9 @@
 import React, { Component } from 'react'
 import {Button,InputItem} from 'antd-mobile'
 import './login.scss'
+import { observer, inject } from "mobx-react";
+@inject("loginStore")
+@observer
 
 class login extends Component {
 

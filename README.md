@@ -2,7 +2,7 @@
 
 
 # 技术栈
-react4 + react-redux + react-router + es6 + axios + sass + webpack
+react4 + mobx + react-router + es6 + axios + sass + webpack
 (之后会陆续添加)
 # 说明
 个人练习项目

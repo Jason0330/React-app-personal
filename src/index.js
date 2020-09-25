@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import Route from './routers/router';
 import * as serviceWorker from './serviceWorker';
 import 'antd-mobile/dist/antd-mobile.css';
-import './style/base.scss'
+import './style/base.scss';
+import { Provider } from "mobx-react";
+import stores from "./store/store";
 
-const render = Component => {
 ReactDOM.render(
-    <Component />,
+  <Provider {...stores}>
+    <Route/>
+  </Provider>,
   document.getElementById('root')
 )
-}
-render (Route);
+
 
 serviceWorker.unregister();
