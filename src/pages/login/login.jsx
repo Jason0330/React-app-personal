@@ -5,7 +5,6 @@ import './login.scss'
 import { observer, inject } from "mobx-react";
 @inject("loginStore")
 @observer
-
 class login extends Component {
 
   state = {
