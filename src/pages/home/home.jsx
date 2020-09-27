@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import { SearchBar, Button, Carousel } from 'antd-mobile';
+import { SearchBar, Button, Carousel,Popover, Toast } from 'antd-mobile';
 import './home.scss';
 import axios from 'axios';
+import { inject ,observer } from 'mobx-react';
 
+@inject("loginStore")
+@observer
 class home extends Component {
  
     state = {
       bandata: [],
       toListData:[],
-      scrolls:false
+      scrolls:false,
+      visible:false
     }
 
   componentDidMount() {
@@ -18,7 +22,6 @@ class home extends Component {
        //在componentWillUnmount，进行scroll事件的注销
    componentWillUnmount() {
        window.removeEventListener('scroll', this.bindHandleScroll);
-       axios.Cancel()
    }
 
    bindHandleScroll=(event)=>{
@@ -57,14 +60,69 @@ class home extends Component {
     this.props.history.push('/login')
   }
 
+  toShop=()=>{
+    if(this.props.loginStore.isLogin){
+      this.props.history.push("/shop")
+    }else{
+      this.props.history.push("/login")
+    }
+  }
+
+  logStatus=()=>{
+    this.setState({
+      visible: true,
+    });
+  }
+
+  onSelect = (opt) => {
+    if(opt.props.value === 'out'){
+      this.props.loginStore.outLog()
+    }else{
+      Toast.success('还没有开发哦~',1)
+    }
+    this.setState({
+      visible: false,
+    });
+  };
+
+  handleVisibleChange = (visible) => {
+    this.setState({
+      visible,
+    });
+  };
 
   render() {
     return (
       <div className="home">
         <div className={this.state.scrolls ? 'scrolledBox' : 'headBox'}>
+          {this.props.loginStore.isLogin?
+           <Button size="small" onClick={this.logStatus} className={this.state.scrolls ? 'scrollbtn' : 'lB'}> <i className="icon-peoplelist"></i> </Button>:
           <Button size="small" onClick={this.toLogin} className={this.state.scrolls ? 'scrollbtn' : 'lB'}>登录</Button>
+         }
+         <Popover
+            overlayClassName="fortest"
+            overlayStyle={{ color: 'currentColor' }}
+            visible={this.state.visible}
+            overlay={[
+              (<Popover.Item key="1" value="userInfo" data-seed="logId">个人信息</Popover.Item>),
+              (<Popover.Item key="2" value="out"  style={{ whiteSpace: 'nowrap' }}>退出登录</Popover.Item>),
+            ]}
+            placement="bottom"
+            onVisibleChange={this.handleVisibleChange}
+            onSelect={this.onSelect}
+          >
+            <div style={{
+              height: '100%',
+              padding: '0 15px',
+              marginRight: '-15px',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+            >
+            </div>
+          </Popover>
           <SearchBar placeholder="搜索商品" maxLength={8} className="searchBar" />
-          <Button size="small" className={this.state.scrolls ? 'scrollbtn' : 'rB'}>商场</Button>
+          <Button size="small" onClick={this.toShop} className={this.state.scrolls ? 'scrollbtn' : 'rB'}>商场</Button>
         </div>
         {/* <NavBar/> */}
         <Carousel
