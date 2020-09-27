@@ -20,6 +20,10 @@ class goods extends Component {
     this.setState({data:val.prodatas,outdata:val.outdata})
   }
 
+  toDetail=(id,proid)=>{
+    this.props.history.push(`/goodDetail/${id}/${proid}`)
+  }
+
   render() {
     return (
       <div>
@@ -27,7 +31,7 @@ class goods extends Component {
         <div className="outside">
           {
           this.state.data.map(item => (
-            <div key={item.productId} className="goodsbox">
+            <div key={item.productId} className="goodsbox" onClick={()=>this.toDetail(this.state.id,item.productId)}>
               <img src={item.imageUrl} alt="" className="goodimg" />
               <p className="new">当季新品</p>
               <p className="goodsname">{item.brandName}</p>

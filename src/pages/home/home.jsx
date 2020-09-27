@@ -126,7 +126,7 @@ class home extends Component {
         </div>
         {/* <NavBar/> */}
         <Carousel
-          autoplay={false}
+          autoplay
           infinite
         >
           {this.state.bandata.map(val => (

@@ -22,3 +22,9 @@ react4 + mobx + react-router + es6 + axios + sass + webpack
 陆续完善
 
 ```
+# 目前实现功能
+```
+1.用户登录及登陆状态校验
+2.商场首页
+3.商品分类
+```
