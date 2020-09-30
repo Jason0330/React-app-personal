@@ -1,12 +1,14 @@
 import { observable,action} from "mobx";
 
 class loginStore {
-  @observable isLogin = false;
+  @observable isLogin = sessionStorage.getItem('isLogin') === 'true'?true:false;
   @action setUser =()=>{
     this.isLogin = true
+    sessionStorage.setItem('isLogin','true')
   }
   @action outLog =()=>{
     this.isLogin = false
+    sessionStorage.setItem('isLogin','false')
   }
 }
 
