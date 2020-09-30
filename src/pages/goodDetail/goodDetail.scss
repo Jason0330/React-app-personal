@@ -1,8 +1,9 @@
-.box{
+.goodbox{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    height: 200px;
     .oneBox{
     display: flex;
     flex-direction: row;
@@ -23,11 +24,57 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    .joincar{
+        
+    }
 .price{
     color: red;
     font-size: 16px;
 }
 }
-
+.carbox{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid black;
+    position: fixed;
+    bottom: 0;
+  .bag{
+    width: 100px;
+    height: 100%;
+    border-right: .5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    .cart{
+      font-size: 30px;
+    }
+  }
+  .join{
+    width:150px;
+    height: 100%;
+    border-right: .5px solid black;
+    .joinp{
+      font-size: 18px;
+      font-weight: bold;
+      color: red;
+      text-align: center;
+    }
+  }
+  .buy{
+    width: calc(100% - 250px);
+    height: 100%;
+    .buyp{
+      font-size: 18px;
+      font-weight: bold;
+      color: orange;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+  }
+}
 
 }

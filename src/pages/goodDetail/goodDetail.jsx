@@ -1,18 +1,21 @@
 
 import React, { Component } from 'react';
-import { Button, Toast, Carousel } from 'antd-mobile';
+import { Button, Toast, Carousel,Badge } from 'antd-mobile';
 import './goodDetail.scss';
 import axios from 'axios';
-import ShopCar from '../../components/shopCar/shopCar'
+import { inject ,observer } from 'mobx-react';
 
-
+@inject("carStore")
+@observer
 class shop extends Component {
 
     state = {
         id: '',
         proid: '',
         banners: [],
-        outdata: []
+        outdata: [],
+        count:0,
+        shopCar:[]
     }
 
     componentDidMount() {
@@ -24,7 +27,6 @@ class shop extends Component {
     getshops = () => {
         axios.get(`http://www.mei.com/appapi/product/detail/v3?categoryId=${this.state.id}&productId=${this.state.proid}&platform_code=H5&timestamp=1601174880152&summary=2dd5d65d596a88cb0bf8e522d69e76aa`).then(
             res => {
-                console.log(res)
                 this.setState({
                     outdata: res.data.infos,
                     banners: res.data.infos.images
@@ -40,10 +42,24 @@ class shop extends Component {
         Toast.offline('这里还没进行开发呢！', 1.5);
     }
 
+    joincart=()=>{
+        let carData = this.state.shopCar
+        carData.push(this.state.outdata)
+        this.setState({shopCar:carData},()=>{this.setData()})
+    }
+
+    setData=()=>{
+        if(this.props.carStore.count === 21){
+            Toast.info('最多添加21件商品哦~快去结算吧！',2)
+        }else{
+            this.props.carStore.setData(this.state.shopCar)
+        }
+    }
+
 
     render() {
         return (
-            <div className="box">
+            <div className="goodbox">
                 <div className="oneBox">
                     <Button onClick={this.goback} size="small" icon="left" style={{ marginLeft: 10 }}></Button>
                     <p style={{ fontSize: 16, fontWeight: 'bold' }}>{this.state.outdata.brand}</p>
@@ -77,8 +93,20 @@ class shop extends Component {
                     <p className="price">¥{this.state.outdata.price}</p>
                     <p className="dis">&nbsp;&nbsp;{this.state.outdata.discount}</p>
                     <p style={{ textDecoration: 'line-through', color: '#ccc',marginLeft:30 }}> {this.state.outdata.marketPrice}</p>
+                    {/* <i className="icon-cart joincar"></i> */}
                 </div>
-                <ShopCar/>
+                <div className="carbox">
+                <div className="bag">
+                    <i className="icon-cart cart"></i>
+                    <Badge text={this.props.carStore.count} overflowCount={20} />
+                </div>
+                <div className="join" onClick={this.joincart}>
+                    <p className="joinp">加入购物车</p>
+                </div>
+                <div className="buy">
+                    <p  className="buyp">立即购买</p>
+                </div>
+            </div>
             </div>
         )
     }

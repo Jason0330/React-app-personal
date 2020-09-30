@@ -9,6 +9,7 @@ import { inject ,observer } from 'mobx-react';
 class home extends Component {
  
     state = {
+      isbanner:false,
       bandata: [],
       toListData:[],
       scrolls:false,
@@ -45,7 +46,7 @@ class home extends Component {
       　　　　axios.spread((res1,res2) => {
             let banData = res1.banners;
             let toListData = res2.lists[0].events
-            this.setState({ bandata: banData,toListData:toListData})
+            this.setState({ bandata: banData,toListData:toListData,isbanner:true})
       　　})
       ).catch(err => {
       　　console.log(err) ;
@@ -125,6 +126,7 @@ class home extends Component {
           <Button size="small" onClick={this.toShop} className={this.state.scrolls ? 'scrollbtn' : 'rB'}>商场</Button>
         </div>
         {/* <NavBar/> */}
+        {this.state.isbanner &&
         <Carousel
           autoplay
           infinite
@@ -147,7 +149,7 @@ class home extends Component {
               />
             </a>
           ))}
-        </Carousel>
+        </Carousel> }
         <div className="todayList"> 
         {this.state.bandata.length === 0 ?null:
             <img src={require('../../assets/img/today.png')} className="toimg" alt=""/>}                 
