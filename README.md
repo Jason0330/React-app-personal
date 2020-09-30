@@ -27,4 +27,5 @@ react4 + mobx + react-router + es6 + axios + sass + webpack
 1.用户登录及登陆状态校验
 2.商场首页
 3.商品分类
+4.购物车添加商品（mobx缓存数据）
 ```
