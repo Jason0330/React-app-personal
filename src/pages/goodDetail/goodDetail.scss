@@ -1,78 +1,260 @@
-.goodbox{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 200px;
-    .oneBox{
+.goodbox {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  //头部
+  .headerBox {
+    width: 100%;
+    height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    .btnBoxL{
+      width: 60px;
+      height: 30px;
+      margin-left: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .centerTextBox{
+      width: calc(100% - 140px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      .centerText1{
+        max-width: 100%;
+        color:#363636;
+        font: {
+          size: 16px;
+          weight: bold;
+        };
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .centerText2{
+        max-width: 100%;
+        color: #f3361d;
+        font: {
+          size: 14px;
+          weight: bold;
+        };
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .btnBoxR{
+      width: 60px;
+      height: 30px;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  //内容
+  .contentBox{
     width: 100%;
-    height: 40px;
-    // border-bottom: 1px solid #cccccc;
-}
-.name{
-    font-size: 18px;
-    font-weight: bold;
-}
-.pribox{
-    padding-left: 80px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    
-.price{
-    color: red;
-    font-size: 16px;
-}
-}
-.carbox{
+    height: calc(100% - 110px);
+    overflow: scroll;
+    .bannerImgBox{
+      width: calc(100% - 30px);
+      height: 320px;
+      margin:15px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 6px #d8d8d8;
+      .bannerImg{
+        width: 100%;
+        height: 320px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+    }
+    .product-name{
+      width: calc(100% - 30px);
+      height: 60px;
+      margin-left: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .nameText{
+        font-size: 18px;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-overflow: -o-ellipsis-lastline;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+    .priceBox1{
+      width: calc(100% - 30px);
+      height: 20px;
+      margin-left: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .priceBox1-text{
+        max-width: 100%;
+        font-size: 12px;
+        color: #a7a7a7;
+        text-decoration: line-through;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .priceBox2{
+      width: calc(100% - 30px);
+      height: 30px;
+      margin-left: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .priceBox2-text{
+        max-width: calc(100% - 60px);
+        font-size: 18px;
+        font-weight: bold;
+        color: #f3361d;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .priceBox2-right{
+        margin-left: 10px;
+        width: 50px;
+        height: 20px;
+        border: 1px solid #696969;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        align-items: center;
+        color: #696969;
+        font-size: 12px;
+      }
+    }
+    .deliveryTime{
+      width: calc(100% - 30px);
+      height: 40px;
+      margin-left: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .deliveryTime-img{
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        object-fit: cover;
+      }
+      .deliveryTime-text{
+        max-width: calc(100% - 28px);
+        font-size: 12px;
+        color: #a7a7a7;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .listItem{
+      width: calc(100% - 30px);
+      height: 60px;
+      margin-left: 15px;
+      border-bottom: 1px solid #d8d8d8;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .listItem-left{
+        width: 80px;
+        margin-left: 10px;
+        font-size: 16px;
+        //font-weight: bold;
+        letter-spacing: 1px;
+        color: #515151;
+      }
+      .listItem-right{
+        width: calc(100% - 100px);
+        height: 100%;
+        margin-right: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .detailsTitle{
+      width: calc(100% - 30px);
+      height: 80px;
+      margin-left: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .detailsTitle-text{
+        font-size: 18px;
+        font-weight: bold;
+        color: #363636;
+      }
+    }
+  }
+
+  .carbox {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 60px;
-    border-top: 1px solid black;
+    border-top: 1px solid #d8d8d8;
     position: fixed;
     bottom: 0;
-  .bag{
-    width: 100px;
-    height: 100%;
-    border-right: .5px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    .cart{
-      font-size: 30px;
-    }
-  }
-  .join{
-    width:150px;
-    height: 100%;
-    border-right: .5px solid black;
-    .joinp{
-      font-size: 18px;
-      font-weight: bold;
-      color: red;
-      text-align: center;
-    }
-  }
-  .buy{
-    width: calc(100% - 250px);
-    height: 100%;
-    .buyp{
-      font-size: 18px;
-      font-weight: bold;
-      color: orange;
+
+    .bag {
+      width: 100px;
+      height: 100%;
+      border-right: .5px solid #d8d8d8;
       display: flex;
-    justify-content: center;
-    align-items: center;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+
+      .cart {
+        font-size: 30px;
+      }
+    }
+
+    .join {
+      width: 150px;
+      height: 100%;
+      border-right: .5px solid #d8d8d8;
+      background-color: #ffaa33;
+      .joinp {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+      }
+    }
+
+    .buy {
+      width: calc(100% - 250px);
+      height: 100%;
+      background-color: #f3361d;
+      .buyp {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
-}
 
 }
