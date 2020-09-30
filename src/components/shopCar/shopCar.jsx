@@ -13,10 +13,7 @@ class ShopCar extends Component {
     }
 
     componentDidMount() {
-        
-        let data = this.props.getData;
-        console.log('111',data)
-        // this.setState({shopdata:data})
+       
     }
 
     joincart=()=>{
