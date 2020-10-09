@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Toast, Carousel, Badge, Icon} from 'antd-mobile';
+import { Toast, Carousel, Badge, Icon} from 'antd-mobile';
 import './goodDetail.scss';
 import axios from 'axios';
 import {inject, observer} from 'mobx-react';
