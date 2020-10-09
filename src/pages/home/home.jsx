@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { SearchBar, Button, Carousel, Popover, Toast } from 'antd-mobile';
+import { SearchBar, Button, Carousel, Popover, } from 'antd-mobile';
 import './home.scss';
 import axios from 'axios';
 import { inject, observer } from 'mobx-react';
@@ -79,7 +79,7 @@ class home extends Component {
     if (opt.props.value === 'out') {
       this.props.loginStore.outLog()
     } else {
-      Toast.success('还没有开发哦~', 1)
+      this.props.history.push('/personal')
     }
     this.setState({
       visible: false,
@@ -113,7 +113,7 @@ class home extends Component {
             overlayStyle={{ color: 'currentColor' }}
             visible={this.state.visible}
             overlay={[
-              (<Popover.Item key="1" value="userInfo" data-seed="logId">个人信息</Popover.Item>),
+              (<Popover.Item key="1" value="userInfo" data-seed="logId">个人中心</Popover.Item>),
               (<Popover.Item key="2" value="out" style={{ whiteSpace: 'nowrap' }}>退出登录</Popover.Item>),
             ]}
             placement="bottom"

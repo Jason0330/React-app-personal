@@ -7,6 +7,7 @@ import goods from "../pages/goods/goods";
 import login from "../pages/login/login";
 import shop from '../pages/shop/shop';
 import goodDetail from '../pages/goodDetail/goodDetail';
+import personal from '../pages/personal/personal'
 
 class Router extends Component {
     render() {
@@ -20,6 +21,7 @@ class Router extends Component {
                             <Route path="/login" component={login} /> 
                             <Route path="/shop" component={shop}/>
                             <Route path="/goodDetail/:id/:proid" component={goodDetail}/>
+                            <Route path="/personal" component={personal}/>
                         </ScrollTop>
                     </Switch>
                 </HashRouter>

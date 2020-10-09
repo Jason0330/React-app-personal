@@ -10,6 +10,9 @@ class loginStore {
     this.isLogin = false
     sessionStorage.setItem('isLogin','false')
   }
+  @action saveInfo =(info)=>{
+    sessionStorage.setItem('userinfo',info)
+  }
 }
 
 export default loginStore;
