@@ -19,11 +19,11 @@ class home extends Component {
 
   componentDidMount() {
     this.init()
-    window.addEventListener('scroll', this.bindHandleScroll)
+    window.addEventListener('scroll', this.bindHandleScroll.bind(this))
   }
   //在componentWillUnmount，进行scroll事件的注销
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.bindHandleScroll);
+    window.removeEventListener('scroll', this.bindHandleScroll.bind(this));
   }
 
   bindHandleScroll = (event) => {

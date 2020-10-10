@@ -42,7 +42,6 @@ class NavBar extends React.Component {
                 　　　　axios.get("http://www.mei.com/appapi/silo/eventForH5?categoryId=crossborder&pageIndex=1&timestamp=1602227931775&summary=1c50992686bc83e0fde4ffaab6a9ef7f&platform_code=H5").then(res => res.data)
                 　　]).then(
                 　　　　axios.spread((res1,res2) => {
-                    console.log(res1,res2)
                       let banData = res1.banners;
                       let toListData = res2.eventList
                       this.props.getData({banData,toListData})
@@ -56,7 +55,6 @@ class NavBar extends React.Component {
                 　　　　axios.get("http://www.mei.com/appapi/silo/eventForH5?categoryId=men&pageIndex=1&timestamp=1602228318713&summary=01232ce204579785373ee84a769c1739&platform_code=H5").then(res => res.data)
                 　　]).then(
                 　　　　axios.spread((res1,res2) => {
-                    console.log(res1,res2)
                       let banData = res1.banners;
                       let toListData = res2.eventList
                       this.props.getData({banData,toListData})
@@ -70,7 +68,6 @@ class NavBar extends React.Component {
                 　　　　axios.get("http://www.mei.com/appapi/silo/eventForH5?categoryId=women&pageIndex=1&timestamp=1602228442083&summary=d610dfc66b61b4e7414551c1ba5a803d&platform_code=H5").then(res => res.data)
                 　　]).then(
                 　　　　axios.spread((res1,res2) => {
-                    console.log(res1,res2)
                       let banData = res1.banners;
                       let toListData = res2.eventList
                       this.props.getData({banData,toListData})
@@ -85,7 +82,6 @@ class NavBar extends React.Component {
                 　　　　axios.get("http://www.mei.com/appapi/silo/eventForH5?categoryId=cosmetics&pageIndex=1&timestamp=1602228498715&summary=14d4ce40e0392f5fb5edf3c260a36faf&platform_code=H5").then(res => res.data)
                 　　]).then(
                 　　　　axios.spread((res1,res2) => {
-                    console.log(res1,res2)
                       let banData = res1.banners;
                       let toListData = res2.eventList
                       this.props.getData({banData,toListData})
