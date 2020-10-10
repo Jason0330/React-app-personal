@@ -137,6 +137,11 @@ class shop extends Component {
         }
     }
 
+    //立即购买
+    goBuy = () =>{
+        Toast.offline('这里还没进行开发呢！', 1.5);
+    }
+
     //改变颜色
     _changeColor = (item,index) => {
         let infos = this.state.infos
@@ -548,7 +553,7 @@ class shop extends Component {
                     </div>
                     <div className="bottom-btnBox">
                         <div className="btn1" onClick={this.joincart}>加入购物车</div>
-                        <div className="btn2">立即购买</div>
+                        <div className="btn2" onClick={this.goBuy}>立即购买</div>
                     </div>
                 </Modal>
             </div>
