@@ -12,7 +12,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    .btnBoxL{
+
+    .btnBoxL {
       width: 60px;
       height: 30px;
       margin-left: 10px;
@@ -20,16 +21,18 @@
       flex-direction: row;
       align-items: center;
     }
-    .centerTextBox{
+
+    .centerTextBox {
       width: calc(100% - 140px);
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
-      .centerText1{
+
+      .centerText1 {
         max-width: 100%;
-        color:#363636;
+        color: #363636;
         font: {
           size: 16px;
           weight: bold;
@@ -38,7 +41,8 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      .centerText2{
+
+      .centerText2 {
         max-width: 100%;
         color: #f3361d;
         font: {
@@ -50,7 +54,8 @@
         white-space: nowrap;
       }
     }
-    .btnBoxR{
+
+    .btnBoxR {
       width: 60px;
       height: 30px;
       margin-right: 10px;
@@ -60,32 +65,37 @@
       align-items: center;
     }
   }
+
   //内容
-  .contentBox{
+  .contentBox {
     width: 100%;
     height: calc(100% - 110px);
     overflow: scroll;
-    .bannerImgBox{
+
+    .bannerImgBox {
       width: calc(100% - 30px);
       height: 320px;
-      margin:15px;
+      margin: 15px;
       border-radius: 8px;
       box-shadow: 0px 0px 6px #d8d8d8;
-      .bannerImg{
+
+      .bannerImg {
         width: 100%;
         height: 320px;
         border-radius: 8px;
         object-fit: cover;
       }
     }
-    .product-name{
+
+    .product-name {
       width: calc(100% - 30px);
       height: 60px;
       margin-left: 15px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      .nameText{
+
+      .nameText {
         font-size: 18px;
         font-weight: bold;
         overflow: hidden;
@@ -97,14 +107,16 @@
         -webkit-box-orient: vertical;
       }
     }
-    .priceBox1{
+
+    .priceBox1 {
       width: calc(100% - 30px);
       height: 20px;
       margin-left: 15px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      .priceBox1-text{
+
+      .priceBox1-text {
         max-width: 100%;
         font-size: 12px;
         color: #a7a7a7;
@@ -114,14 +126,16 @@
         white-space: nowrap;
       }
     }
-    .priceBox2{
+
+    .priceBox2 {
       width: calc(100% - 30px);
       height: 30px;
       margin-left: 15px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      .priceBox2-text{
+
+      .priceBox2-text {
         max-width: calc(100% - 60px);
         font-size: 18px;
         font-weight: bold;
@@ -130,35 +144,61 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      .priceBox2-right{
+
+      .priceBox2-right {
         margin-left: 10px;
-        width: 50px;
-        height: 20px;
+        padding: 4px 6px;
         border: 1px solid #696969;
         border-radius: 4px;
         display: flex;
         flex-direction: row;
-        justify-content:center;
+        justify-content: center;
         align-items: center;
         color: #696969;
         font-size: 12px;
       }
+      .priceBox2-right2{
+        margin-left: 10px;
+        padding: 4px 6px;
+        background-color: #f3361d;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 12px;
+      }
     }
-    .deliveryTime{
+
+    .deliveryTime {
       width: calc(100% - 30px);
       height: 40px;
       margin-left: 15px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      .deliveryTime-img{
-        width: 20px;
-        height: 20px;
+
+      .deliveryTime-text2 {
+        max-width: 116px;
+        margin-right: 6px;
+        font-size: 12px;
+        color: #363636;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .deliveryTime-img {
+        width: 18px;
+        height: 18px;
         margin-right: 8px;
         object-fit: cover;
       }
-      .deliveryTime-text{
-        max-width: calc(100% - 28px);
+
+      .deliveryTime-text {
+        max-width: calc(100% - 150px);
         font-size: 12px;
         color: #a7a7a7;
         overflow: hidden;
@@ -166,7 +206,8 @@
         white-space: nowrap;
       }
     }
-    .listItem{
+
+    .listItem {
       width: calc(100% - 30px);
       height: 60px;
       margin-left: 15px;
@@ -174,38 +215,107 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      .listItem-left{
-        width: 80px;
+
+      .listItem-left {
+        width: 60px;
         margin-left: 10px;
         font-size: 16px;
         //font-weight: bold;
         letter-spacing: 1px;
         color: #515151;
       }
-      .listItem-right{
-        width: calc(100% - 100px);
+
+      .listItem-right {
+        width: calc(100% - 80px);
         height: 100%;
         margin-right: 10px;
         display: flex;
         flex-direction: row;
         align-items: center;
+        .right-btn{
+          padding:4px 6px;
+          background-color: #f5f5f5;
+          color: #000;
+          border-radius: 2px;
+          margin-right: 15px;
+        }
+        .right-btn-unableChoose{
+          padding:4px 6px;
+          background-color: #f5f5f5;
+          color: #a7a7a7;
+          border-radius: 2px;
+          margin-right: 15px;
+        }
+        .right-btn-choose{
+          padding:4px 6px;
+          background-color: #f3361d;
+          color: #fff;
+          border-radius: 2px;
+          margin-right: 15px;
+        }
+        .item-right-text1{
+          font-size: 12px;
+          color: #a7a7a7;
+        }
+        .item-right-split{
+          width: 1px;
+          height: 10px;
+          margin-left: 6px;
+          margin-right: 6px;
+          background-color: #363636;
+        }
       }
     }
-    .detailsTitle{
+
+    .detailsTitle {
       width: calc(100% - 30px);
       height: 80px;
       margin-left: 15px;
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       align-items: center;
-      .detailsTitle-text{
+
+      .detailsTitle-text {
         font-size: 18px;
         font-weight: bold;
         color: #363636;
       }
+      .detailsTitle-right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .title-right-text{
+          font-size: 14px;
+          color: #696969;
+        }
+      }
+    }
+    .detailsContent{
+      width: calc(100% - 30px);
+      margin-left: 15px;
+      border-bottom: 1px solid #d8d8d8;
+      padding-bottom: 20px;
+      .description-img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .content-message{
+        width: 100%;
+        font-size: 12px;
+        color: #363636;
+        margin-top: 15px;
+      }
+      .content-message2{
+        width: 100%;
+        font-size: 14px;
+        color: #000;
+      }
     }
   }
 
+  //底部按钮
   .carbox {
     display: flex;
     flex-direction: row;
@@ -234,6 +344,7 @@
       height: 100%;
       border-right: .5px solid #d8d8d8;
       background-color: #ffaa33;
+
       .joinp {
         font-size: 18px;
         font-weight: bold;
@@ -246,6 +357,7 @@
       width: calc(100% - 250px);
       height: 100%;
       background-color: #f3361d;
+
       .buyp {
         font-size: 18px;
         font-weight: bold;
@@ -257,4 +369,252 @@
     }
   }
 
+
 }
+
+.modalBox {
+  width: 100%;
+  height: 55vh;
+  .modalItemTitle {
+    width: calc(100% - 30px);
+    height: 50px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .title-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  .modalCenterBox{
+    width: 100%;
+    height: calc(100% - 120px);
+    padding-bottom: 20px;
+    overflow: auto;
+    .modalSubTitle{
+      width: calc(100% - 30px);
+      height: 30px;
+      margin-left: 15px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .subTitle-text{
+        font-size: 14px;
+        color: #000;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .modalContent{
+      width: calc(100% - 30px);
+      margin-left: 15px;
+      display: flex;
+      flex-direction: row;
+      .content-text{
+        font-size: 12px;
+        color: #696969;
+        text-align: left;
+      }
+    }
+    .modalImgBox{
+      width: calc(100% - 30px);
+      margin: 10px 15px 10px 15px;
+      display: flex;
+      flex-direction: row;
+      .modalImg{
+        width: 100px;
+        height: 150px;
+        object-fit: cover;
+      }
+    }
+  }
+  .modalBtnBox{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 0px;
+    box-shadow: 0px -2px 2px #f3f3f3;
+    font-size: 16px;
+    color: #363636;
+    font-weight: bold;
+    letter-spacing: 0px;
+  }
+}
+
+.modalBoxCart{
+  width: 100%;
+  height: 55vh;
+  .cartBoxTitle{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #d8d8d8;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .floatBox{
+      width: 100px;
+      height: 100px;
+      margin-left: 15px;
+      margin-right: 15px;
+      background-color: #fff;
+      border: 1px solid #d8d8d8;
+      .floatBox-img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .absoluteBox{
+      width: calc(100% - 130px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .absoluteBox-top{
+        width: calc(100% - 15px);
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .absoluteBox-bottom{
+        width: calc(100% - 15px);
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .bottom-text1{
+          font-size: 16px;
+          color: #363636;
+          font-weight: bold;
+        }
+        .bottom-text2{
+          font-size: 12px;
+          color: #696969;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .portaitList{
+    width: calc(100% - 30px);
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    .listItem-top{
+      width: 100%;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 14px;
+      color: #363636;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .listItem-bottom{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      .right-btn-choose{
+        padding:4px 6px;
+        background-color: #f3361d;
+        color: #fff;
+        border-radius: 2px;
+        margin-right: 15px;
+      }
+      .right-btn{
+        padding:4px 6px;
+        background-color: #f5f5f5;
+        color: #000;
+        border-radius: 2px;
+        margin-right: 15px;
+      }
+      .right-btn-unableChoose{
+        padding:4px 6px;
+        background-color: #f5f5f5;
+        color: #a7a7a7;
+        border-radius: 2px;
+        margin-right: 15px;
+      }
+    }
+  }
+  .horizeList{
+    width: calc(100% - 30px);
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .horizeList-left{
+      width: 80px;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 14px;
+      color: #363636;
+    }
+    .horizeList-right{
+      width: calc(100% - 80px);
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  .bottom-btnBox{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    bottom: 0;
+    box-shadow: 0px -2px 2px #f3f3f3;
+    .btn1{
+      width: 50%;
+      height: 100%;
+      border-right: 1px solid #d8d8d8;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #363636;
+      font-weight: bold;
+    }
+    .btn2{
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #f3361d;
+      font-weight: bold;
+    }
+  }
+}
+
