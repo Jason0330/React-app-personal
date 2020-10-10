@@ -12,7 +12,9 @@ class login extends Component {
   state = {
     phone:'',
     password:'',
+  
   }
+
 
   render() {
     return (
@@ -56,6 +58,7 @@ class login extends Component {
     if(this.state.password&&this.state.phone != ''){
         Toast.success('登陆成功', 1 ,()=>{
           this.props.loginStore.setUser()
+          this.props.loginStore.saveInfo(this.state.phone)
           this.props.history.push('/')
         });
     }else{

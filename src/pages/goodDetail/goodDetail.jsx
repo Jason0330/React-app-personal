@@ -231,7 +231,7 @@ class shop extends Component {
                 </div>
                 <div className="contentBox">
                     <div className="bannerImgBox">
-                        {this.state.bannerFlag ? <Carousel autoplay={true} infinite={true}>
+                        {this.state.bannerFlag ?<Carousel autoplay={true} infinite={true}>
                             {this.state.banners.map((val, index) => (
                                 <img src={val.smallImgUrl}
                                      alt=""
