@@ -28,4 +28,6 @@ react4 + mobx + react-router + es6 + axios + sass + webpack
 2.商场首页
 3.商品分类
 4.购物车添加商品（mobx缓存数据）
+5.商品详情展示
+6.个人信息页面
 ```
